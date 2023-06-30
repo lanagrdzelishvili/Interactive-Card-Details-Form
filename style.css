@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-image: url(./images/bg-main-mobile.png);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.first-container {
+    position: relative;
+}
+.back {
+    background-image: url(./images/bg-card-back.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 290px;
+    height: 210px;
+    top: 30px;
+    right: -170px;
+}
+.front {
+    background-image: url(./images/bg-card-front.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 290px;
+    height: 210px;
+    top: 122px;
+    right: -115px;
+    z-index: 3;
+}
+#back-number {
+    margin-top: 72px;
+    margin-left: 230px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 11px;
+    letter-spacing: 1.28571px;
+    color: #ffffff;
+}
+.front img {
+    width: 60px;
+    margin: 20px;
+}
+#card-number {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: 2.2px;
+    margin-left: 20px;
+}
+.name-month-year {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 28px 20px 20px;
+}
+#card-name {
+    color: #ffffff;
+    font-size: 9px;
+    line-height: 11px;
+    letter-spacing: 1.28571px;
+    text-transform: uppercase;
+}
+.time {
+    display: flex;
+}
+#month, #year {
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 500;
+}
+.second-container {
+    margin-top: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.wrong-number, .wrong-month, .wrong-year, .wrong-cvc {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF5050;
+    text-transform: lowercase;
+}
+.wrong-number {
+    display: none;
+}
+.wrong-month, .wrong-year {
+    display: none;
+}
+.wrong-cvc {
+    display: none;
+}
+label {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 2px;
+    color: #21092F;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+input {
+    border: 1px solid #DFDEE0;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #21092F;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    padding: 10px;
+    width: 340px;
+}
+#card-name-input, #card-number-input {
+    padding-left: 20px;
+}
+.data-inputs {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+.two-inputs {
+    margin-top: 20px;
+}
+.two {
+    margin-top: 10px;
+}
+.one-input {
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+}
+#month-input, #year-input {
+    width: 90px;
+}
+#cvc {
+    width: 150px;
+}
+#btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #21092F;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #FFFFFF;
+    height: 53px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.btn {
+    width: 340px;
+}
+.thank {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.thank h1 {
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 2px;
+    color: #21092F;
+}
+.thank p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #21092F;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
