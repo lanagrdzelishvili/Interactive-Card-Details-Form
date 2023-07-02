@@ -39,3 +39,27 @@ input_number.addEventListener('input', () => {
     card_number.innerHTML = cleanValue || defaultModeTextNum
     input_number.style.borderColor = enteredNumber ? 'green' : 'initial'
 })
+
+const month_input = document.querySelector('#month-input')
+const month = document.querySelector('#month')
+const defaultModemonth = '00'
+const wrong_month = document.querySelector('.wrong-month')
+
+month_input.addEventListener('input', () => {
+    let enteredMonth = month_input.value
+    let cleanValue = enteredMonth.replace(/\D/g, '').slice(0, 2)
+    
+    if(cleanValue > 12 || enteredMonth !== cleanValue) {
+      cleanValue = '00'
+      wrong_month.style.display = 'flex'
+    }
+    else {
+      wrong_month.style.display = 'none'
+    }
+
+    month_input.value = cleanValue
+
+    month.innerHTML = cleanValue || defaultModemonth
+    month_input.style.borderColor = enteredMonth ? 'green' : 'initial'
+
+})

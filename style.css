@@ -74,6 +74,11 @@ body {
 .time {
     display: flex;
 }
+.sideline {
+    margin-top: -2px;
+    font-size: 11px;
+    color: white;
+}
 #month, #year {
     color: #ffffff;
     font-size: 9px;
@@ -93,6 +98,9 @@ body {
     text-transform: lowercase;
     margin-top: 5px;
 }
+.wrong-card-name {
+    display: none;
+}
 .wrong-number {
     display: none;
 }
@@ -102,8 +110,8 @@ body {
 .wrong-cvc {
     display: none;
 }
-.wrong-card-name {
-    display: none;
+.label-card-number {
+    margin-top: 30px;
 }
 label {
     font-weight: 500;
@@ -133,19 +141,16 @@ input {
 #card-name-input, #card-number-input {
     padding-left: 20px;
 }
-.data-inputs {
-    align-items: center;
+.two-inputs {
+    margin-top: 10px;
     display: flex;
     gap: 10px;
 }
-.two-inputs {
-    margin-top: 20px;
-}
 .two {
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
 }
 .one-input {
-    margin-top: 7px;
     display: flex;
     flex-direction: column;
 }
@@ -240,6 +245,11 @@ input {
     #card-name {
         font-size: 13px;
         line-height: 14px;
+    }
+    .sideline {
+        margin-top: -2px;
+        font-size: 15px;
+        color: white;
     }
     #month, #year {
         font-size: 14px;
