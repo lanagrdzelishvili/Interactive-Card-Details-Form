@@ -167,7 +167,7 @@ input {
 #cvc {
     width: 150px;
 }
-#btn {
+#btn, #btn-continue {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -190,14 +190,16 @@ input {
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 320px;
     margin-bottom: 40px;
+    text-align: center;
 }
 .thank h1 {
     font-weight: 500;
     line-height: 15px;
     letter-spacing: 2px;
     color: #21092F;
+    margin: 30px 0;
 }
 .thank p {
     font-weight: 500;
@@ -206,6 +208,7 @@ input {
     color: #21092F;
     mix-blend-mode: normal;
     opacity: 0.5;
+    margin: 40px 0;
 }
 
 @media screen and (min-width:1200px){
@@ -219,13 +222,13 @@ input {
     .back {
         width: 400px;
         height: 220px;
-        top: 120px;
+        top: 100px;
         right: -480px;
     }
     .front {
         width: 400px;
         height: 220px;
-        top: -130px;
+        top: -156px;
         right: -378px;
         z-index: 3;
     }
@@ -272,10 +275,15 @@ input {
     .thank {
         display: none;
         flex-direction: column;
-        align-items: center;
-        gap: 40px;
         margin-top: 190px;
-        margin-bottom: 40px;
+        text-align: center;
+        margin-left: 50px;
+    }
+    .thank h1 {
+        margin: 60px 0;
+    }
+    .thank p {
+        margin: 40px 0;
     }
 }
 @media screen and (min-width: 1770px){

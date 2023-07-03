@@ -117,3 +117,26 @@ cvc_input.addEventListener('input', () => {
   }
   cvc.textContent = cleanValue.padEnd(3, '0') || defaultModeCvc
 })
+
+const button = document.querySelector('#btn')
+const button_continue = document.querySelector('#btn-continue')
+const second_container = document.querySelector('.second-container')
+const thank_div = document.querySelector('#thank')
+
+
+button.addEventListener('click', () => {
+  const isCardNameValid = input_name.value
+  const isCardNumberValid = input_number.value
+  const isMonthValid = month_input.value
+  const isYearValid = year_input.value
+  const isCvcValid = cvc_input.value
+
+  if (isCardNameValid && isCardNumberValid && isMonthValid && isYearValid && isCvcValid) {
+    second_container.style.display = 'none';
+    thank_div.style.display = 'block';
+  }
+});
+
+button_continue.addEventListener('click', () => {
+  window.location.reload();
+})
