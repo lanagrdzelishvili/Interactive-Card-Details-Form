@@ -8,37 +8,45 @@ input_name.addEventListener('input', () => {
   let cleanValue = enteredName.replace(/[^a-zA-Zა-ჰ\s]/g, '')
   input_name.value = cleanValue
 
-  if (enteredName !== cleanValue) {
-    wrong_card_name.style.display = 'flex'
+  if (enteredName === '') {
+    wrong_card_name.style.display = 'flex';
+    input_name.style.borderColor = 'red';
   } else {
-    wrong_card_name.style.display = 'none'
+    wrong_card_name.style.display = 'none';
+    input_name.style.borderColor = 'initial';
   }
 
   card_name.textContent = cleanValue || defaultModeText
-  input_name.style.borderColor = enteredName ? 'green' : 'initial'
 })
 
 
-const input_number = document.querySelector('#card-number-input')
-const card_number = document.querySelector('#card-number')
-const defaultModeTextNum = '0000 0000 0000 0000'
-const wrong_number = document.querySelector('#wrong-number')
+const input_number = document.querySelector('#card-number-input');
+const card_number = document.querySelector('#card-number');
+const defaultModeTextNum = '0000 0000 0000 0000';
+const wrong_number = document.querySelector('#wrong-number');
 
 input_number.addEventListener('input', () => {
-    let enteredNumber = input_number.value
-    let cleanValue = enteredNumber.replace(/[^0-9]/g, '')
-    cleanValue = cleanValue.replace(/(\d{4}(?!\s))/g, '$1 ')
-    input_number.value = cleanValue.trim()
+  let enteredNumber = input_number.value;
+  let cleanValue = enteredNumber.replace(/[^0-9]/g, '');
+  let formattedValue = cleanValue.replace(/(\d{4}(?!\s))/g, '$1 ');
 
-    if (enteredNumber.replace(/\s/g, '') !== cleanValue.replace(/\s/g, '')) {
-        wrong_number.style.display = 'flex'
-      } else {
-        wrong_number.style.display = 'none'
-      }
+  input_number.value = formattedValue.trim();
 
-    card_number.innerHTML = cleanValue || defaultModeTextNum
-    input_number.style.borderColor = enteredNumber ? 'green' : 'initial'
-})
+  if (enteredNumber.replace(/\s/g, '') !== cleanValue.replace(/\s/g, '')  || enteredNumber.length < 19) {
+    wrong_number.style.display = 'flex';
+    input_number.style.borderColor = 'red'
+  } else {
+    wrong_number.style.display = 'none';
+    input_number.style.borderColor = 'initial'
+  }
+
+  cleanValue = cleanValue.padEnd(16, '0');
+  formattedValue = cleanValue.replace(/(\d{4})/g, '$1 ');
+
+  card_number.textContent = formattedValue || defaultModeTextNum;
+});
+
+
 
 const month_input = document.querySelector('#month-input')
 const month = document.querySelector('#month')
@@ -46,20 +54,66 @@ const defaultModemonth = '00'
 const wrong_month = document.querySelector('.wrong-month')
 
 month_input.addEventListener('input', () => {
-    let enteredMonth = month_input.value
-    let cleanValue = enteredMonth.replace(/\D/g, '').slice(0, 2)
-    
-    if(cleanValue > 12 || enteredMonth !== cleanValue) {
-      cleanValue = '00'
-      wrong_month.style.display = 'flex'
-    }
-    else {
-      wrong_month.style.display = 'none'
-    }
+  let enteredMonth = month_input.value
+  let cleanValue = enteredMonth.replace(/\D/g, '').slice(0, 2)
+  
+  if(cleanValue > 12 || enteredMonth !== cleanValue) {
+    cleanValue = ''
+    wrong_month.style.display = 'flex'
+    month_input.style.borderColor = 'red'
+  }
+  else {
+    wrong_month.style.display = 'none'
+    month_input.style.borderColor = 'initial'
+  }
 
-    month_input.value = cleanValue
+  month_input.value = cleanValue
+  month.innerHTML = cleanValue.padStart(2, '0') || defaultModemonth
+})
 
-    month.innerHTML = cleanValue || defaultModemonth
-    month_input.style.borderColor = enteredMonth ? 'green' : 'initial'
 
+const year_input = document.querySelector('#year-input')
+const year = document.querySelector('#year')
+const defaultModeYear = '00'
+const wrong_year = document.querySelector('.wrong-year')
+
+year_input.addEventListener('input', () => {
+  let enteredYear = year_input.value
+  let cleanValue = enteredYear.replace(/\D/g, '').slice(0, 4)
+
+  const isValidYear = cleanValue >= 2019 && cleanValue <= 2023
+  year_input.value = cleanValue
+
+  if(isValidYear) {
+    wrong_year.style.display = 'none'
+    year_input.style.borderColor = 'initial'
+  } else {
+    wrong_year.style.display = 'flex'
+    year_input.style.borderColor = 'red'
+  }
+
+  year.innerHTML = isValidYear ? cleanValue : defaultModeYear
+});
+
+
+const cvc_input = document.querySelector('#cvc')
+const cvc = document.querySelector('#cvc-card')
+const defaultModeCvc = '000'
+const wrong_cvc = document.querySelector('.wrong-cvc')
+
+cvc_input.addEventListener('input', () => {
+  let enteredCvc = cvc_input.value
+  let cleanValue = enteredCvc.replace(/\D/g, '').slice(0, 3)
+
+  const isValidCvc = cleanValue.length === 3
+  cvc_input.value = cleanValue
+
+  if(isValidCvc) {
+    wrong_cvc.style.display = 'none'
+    cvc_input.style.borderColor = 'initial'
+  } else {
+    wrong_cvc.style.display = 'flex'
+    cvc_input.style.borderColor = 'red'
+  }
+  cvc.textContent = cleanValue.padEnd(3, '0') || defaultModeCvc
 })
