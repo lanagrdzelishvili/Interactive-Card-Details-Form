@@ -229,8 +229,12 @@ input {
         right: -378px;
         z-index: 3;
     }
+    #cvc-card {
+        margin-top: 103px;
+        margin-left: 310px;
+        font-size: 18px;
+    }
     #cvc {
-        position: absolute;
         top: 30px;
         left: 80px;
         font-size: 14px;
