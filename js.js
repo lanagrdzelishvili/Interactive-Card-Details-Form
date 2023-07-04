@@ -32,12 +32,12 @@ input_number.addEventListener('input', () => {
 
   input_number.value = formattedValue.trim();
 
-  if (enteredNumber.replace(/\s/g, '') !== cleanValue.replace(/\s/g, '')  || enteredNumber.length < 19) {
+  if (cleanValue.length !== 16) {
     wrong_number.style.display = 'flex';
-    input_number.style.borderColor = 'red'
+    input_number.style.borderColor = 'red';
   } else {
     wrong_number.style.display = 'none';
-    input_number.style.borderColor = 'initial'
+    input_number.style.borderColor = 'initial';
   }
 
   cleanValue = cleanValue.padEnd(16, '0');
