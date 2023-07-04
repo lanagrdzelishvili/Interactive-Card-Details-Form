@@ -134,42 +134,11 @@ button.addEventListener('click', () => {
   if (isCardNameValid && isCardNumberValid && isMonthValid && isYearValid && isCvcValid) {
     second_container.style.display = 'none';
     thank_div.style.display = 'block';
+  }else if (!isCardNameValid || !isCardNumberValid || !isMonthValid || !isYearValid || !isCvcValid) {
+    alert('please enter field')
   }
 });
 
 button_continue.addEventListener('click', () => {
   window.location.reload();
 })
-
-
-
-button.addEventListener('click', () => {
-  const inputs = [
-    { element: input_name, errorElement: wrong_card_name },
-    { element: input_number, errorElement: wrong_number },
-    { element: month_input, errorElement: wrong_month },
-    { element: year_input, errorElement: wrong_year },
-    { element: cvc_input, errorElement: wrong_cvc }
-  ];
-
-  let allInputsValid = true;
-
-  inputs.forEach(input => {
-    const { element, errorElement } = input;
-    const isValid = element.value.trim() !== '';
-
-    if (isValid) {
-      errorElement.style.display = 'none';
-      element.style.borderColor = 'initial';
-    } else {
-      errorElement.style.display = 'flex';
-      element.style.borderColor = 'red';
-      allInputsValid = false;
-    }
-  });
-
-  if (allInputsValid) {
-    second_container.style.display = 'none';
-    thank_div.style.display = 'block';
-  }
-});
